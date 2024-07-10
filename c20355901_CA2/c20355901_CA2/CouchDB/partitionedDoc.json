@@ -1,0 +1,13 @@
+{
+    "_id": "_design/my_partitioned_query",
+    "language": "javascript",
+    "options": {
+      "partitioned": true  
+    },
+    "views": {
+      "view_over_50": {
+        "map": "function(doc) { \r\n if ((doc.type === 'dim') && doc.dim_data.AGE_GROUP_DESC === '>50') { emit(doc._id, doc); } }"
+      }
+    }
+  }
+  

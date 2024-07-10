@@ -1,0 +1,32 @@
+{
+    "_id": "8221ed8a0318db0f38cd7dbd6c01611e",
+    "user_ctx": {
+      "name": "admin",
+      "roles": ["_admin", "_reader", "_writer"]
+    },
+    "source": {
+      "url": "http://localhost:5984/c20355901_milosz_lewandowski",
+      "headers": {
+        "Authorization": "Basic YWRtaW46Y291Y2hkYg=="
+      }
+    },
+    "target": {
+      "url": "http://localhost:5984/c20355901_replica",
+      "headers": {
+        "Authorization": "Basic YWRtaW46Y291Y2hkYg=="
+      }
+    },
+    "create_target": true,
+    "continuous": true,
+    "create_target_params": {
+      "partitioned": true
+    },
+    "owner": "admin",
+    "selector": {
+      "$or": [
+        {"data.COUNTYNAME": "Cavan"},
+        {"dim_data.COUNTYNAME": "Cavan"}
+      ]
+    }
+  }
+  

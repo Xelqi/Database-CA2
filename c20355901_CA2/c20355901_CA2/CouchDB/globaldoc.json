@@ -1,0 +1,12 @@
+{
+  "_id": "_design/my_global_query",
+  "language": "javascript",
+  "options": {
+    "partitioned": false
+  },
+  "views": {
+    "global_view": {
+      "map": "function(doc) { \r\n if (doc.type === 'fact') { emit(['fact', doc._id], doc); } else if (doc.type === 'dim') { emit(['dim', doc._id], doc); } }"
+    }
+  }
+}
